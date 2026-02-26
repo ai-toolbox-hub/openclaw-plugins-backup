@@ -1,0 +1,9 @@
+[submodule "clawpal"]
+	path = clawpal
+	url = https://github.com/zhixianio/clawpal
+[submodule "openclaw"]
+	path = openclaw
+	url = https://github.com/openclaw/openclaw
+[submodule "rsync"]
+	path = rsync
+	url = https://github.com/RsyncProject/rsync
