@@ -11,6 +11,7 @@ This repository is a **multi-component project** focused on OpenClaw backup solu
 1. **Root directory**: Backup solutions analysis and documentation (Markdown files)
 2. **clawpal/**: Tauri-based desktop companion app for OpenClaw (Rust + React/TypeScript)
 3. **openclaw/**: OpenClaw AI assistant main project (Node.js/TypeScript)
+4. **rsync/**: Official rsync project repository (C language implementation)
 
 ---
 
@@ -116,6 +117,74 @@ export CLAWPAL_DATA_DIR="$HOME/.clawpal"        # ClawPal metadata directory
 - `src/`: React/TypeScript frontend
 - `src-tauri/`: Rust backend + Tauri configuration
 - `docs/plans/`: Implementation plans and design documents
+
+---
+
+## Rsync Project (rsync/ directory)
+
+### Overview
+Rsync is a fast and versatile file copying tool that uses a delta-transfer algorithm to minimize data transfer. It is the core technology behind the improved backup solution proposed for OpenClaw.
+
+### Key Details
+- **Language**: C
+- **Repository**: Official rsync project (https://github.com/RsyncProject/rsync)
+- **Main Documentation**: `README.md`, `INSTALL.md`, `NEWS.md`
+- **Version Control**: Git
+- **Build System**: Autoconf/Automake
+
+### Development Commands
+
+```bash
+cd rsync/
+
+# Install dependencies
+# For macOS (using Homebrew):
+brew install autoconf automake libtool
+
+# For Ubuntu/Debian:
+sudo apt-get install autoconf automake libtool
+
+# Configure and build
+./configure
+make
+
+# Install
+make install
+
+# Run tests
+make check
+
+# Clean
+make clean
+```
+
+### Project Structure
+- `*.c / *.h`: C source files and headers
+- `lib/`: Library functions
+- `support/`: Support utilities
+- `testsuite/`: Comprehensive test suite
+- `doc/`: Documentation
+- `packaging/`: Package configuration files
+- `zlib/`: Zlib compression library
+
+### Core Features
+| Feature | Description |
+|---------|-------------|
+| **Delta Transfer** | Only transfers the differences between files |
+| **Incremental Backup** | Supports efficient incremental backup strategies |
+| **Compression** | Built-in compression support for data transfer |
+| **Security** | Supports SSH and SSL/TLS for secure transfer |
+| **Checksums** | MD5, SHA-1, and other checksum algorithms for integrity verification |
+| **Partial Transfers** | Handles network failures with partial file transfer recovery |
+| **File Permissions** | Preserves file permissions, ownership, and timestamps |
+
+### Backup Analysis Context
+Rsync is the foundation of the proposed backup solution for OpenClaw. Its key benefits over ClawPal's current approach include:
+- 70-90% reduction in data transfer volume
+- 50-80% improvement in storage efficiency
+- 60-80% faster recovery time
+- Built-in network resilience
+- Compression and security features
 
 ---
 

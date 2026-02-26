@@ -4,4 +4,5 @@ GITHUB同步指南.md
 # 原始项目代码（用于分析，不提交）
 clawpal/
 openclaw/
+rsync/
 .DS_Store
