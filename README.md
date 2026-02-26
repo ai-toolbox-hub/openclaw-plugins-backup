@@ -9,9 +9,12 @@ OpenClaw 备份方案分析项目是一个专注于优化 OpenClaw 现有备份�
 ```
 openclaw-plugins-backup/
 ├── 备份方案分析.md          # 核心技术分析文档
-├── GITHUB同步指南.md        # 本地同步配置指南（.gitignore忽略）
+├── README.md               # 项目说明文档
+├── LICENSE                 # MIT许可证
+├── CONTRIBUTING.md         # 贡献指南
 ├── .gitignore              # git忽略配置文件
-└── README.md               # 项目说明文档
+├── .github/                # GitHub工作流配置
+└── docs/                   # 文档目录
 ```
 
 ## 🚀 核心功能
