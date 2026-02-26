@@ -3,8 +3,8 @@
 ## 🎯 项目信息
 
 **项目名称**：OpenClaw 灾备与同步方案分析
-**本地路径**：/Volumes/workspace/ObsidianData/11. 灾备/openclaw-plugin-rsync/
-**目标仓库**：ai-toolbox-hub/openclaw-plugin-rsync
+**本地路径**：/Volumes/workspace/ObsidianData/11. 灾备/openclaw-plugins-backup/
+**目标仓库**：ai-toolbox-hub/openclaw-plugins-backup
 
 ---
 
@@ -14,20 +14,20 @@
 
 #### 1. 首先在 GitHub 上创建仓库
 1. 访问 [GitHub](https://github.com/new)
-2. 仓库名称：`openclaw-plugin-rsync`
+2. 仓库名称：`openclaw-plugins-backup`
 3. 描述：OpenClaw 备份方案分析与改进方案
 4. 许可证：MIT 或 Apache 2.0
 5. 点击"Create repository"
 
 #### 2. 配置本地仓库
 ```bash
-cd "/Volumes/workspace/ObsidianData/11. 灾备/openclaw-plugin-rsync"
+cd "/Volumes/workspace/ObsidianData/11. 灾备/openclaw-plugins-backup"
 
 # 添加远程仓库
-git remote add origin git@github.com:ai-toolbox-hub/openclaw-plugin-rsync.git
+git remote add origin git@github.com:ai-toolbox-hub/openclaw-plugins-backup.git
 
 # 或使用 HTTPS（需要输入密码）
-git remote add origin https://github.com/ai-toolbox-hub/openclaw-plugin-rsync.git
+git remote add origin https://github.com/ai-toolbox-hub/openclaw-plugins-backup.git
 ```
 
 #### 3. 推送到 GitHub
@@ -44,7 +44,7 @@ git push -u origin main
 
 #### `.github/workflows/sync.yml`
 ```yaml
-name: Auto Sync OpenClaw Rsync Plugin
+name: Auto Sync OpenClaw Backup Plugin
 on:
   schedule:
     - cron: '0 0 * * *'  # 每日自动同步
@@ -73,7 +73,7 @@ jobs:
         run: |
           if [ -n "$(git status --porcelain)" ]; then
             git add .
-            git commit -m "Auto sync OpenClaw rsync plugin files"
+            git commit -m "Auto sync OpenClaw backup plugin files"
             git push origin main --force
           fi
 ```
@@ -123,7 +123,7 @@ echo "Host github.com
 ```bash
 # 创建同步脚本 sync.sh
 #!/bin/bash
-cd "/Volumes/workspace/ObsidianData/11. 灾备/openclaw-plugin-rsync" || exit 1
+cd "/Volumes/workspace/ObsidianData/11. 灾备/openclaw-plugins-backup" || exit 1
 
 # 拉取最新更改
 git pull origin main
@@ -140,7 +140,7 @@ git push origin main
 #### 4. 设置定时任务
 ```bash
 # 每日自动同步
-0 0 * * * cd "/Volumes/workspace/ObsidianData/11. 灾备/openclaw-plugin-rsync" && /bin/bash sync.sh >> sync.log 2>&1
+0 0 * * * cd "/Volumes/workspace/ObsidianData/11. 灾备/openclaw-plugins-backup" && /bin/bash sync.sh >> sync.log 2>&1
 ```
 
 ---
@@ -150,13 +150,13 @@ git push origin main
 ### 同步状态检查
 ```bash
 # 检查同步状态
-cd "/Volumes/workspace/ObsidianData/11. 灾备/openclaw-plugin-rsync" && git remote -v && git status && echo "--- 同步日志 ---" && git log --oneline | head -5
+cd "/Volumes/workspace/ObsidianData/11. 灾备/openclaw-plugins-backup" && git remote -v && git status && echo "--- 同步日志 ---" && git log --oneline | head -5
 ```
 
 ### 本地与远程比较
 ```bash
 # 比较本地与远程内容
-cd "/Volumes/workspace/ObsidianData/11. 灾备/openclaw-plugin-rsync"
+cd "/Volumes/workspace/ObsidianData/11. 灾备/openclaw-plugins-backup"
 git fetch origin
 git diff main..origin/main --stat
 ```
@@ -197,7 +197,7 @@ git config --global i18n.commitencoding utf-8
 
 ### 文件组织
 ```
-openclaw-plugin-rsync/
+openclaw-plugins-backup/
 ├── README.md              # 项目说明（建议添加）
 ├── 备份方案分析.md         # 主要分析文档
 ├── rsync-configuration.md # rsync 配置文档
@@ -242,10 +242,10 @@ hotfix/xxx      # 紧急修复分支
 
 ### 快速启动（推荐）
 ```bash
-cd "/Volumes/workspace/ObsidianData/11. 灾备/openclaw-plugin-rsync"
+cd "/Volumes/workspace/ObsidianData/11. 灾备/openclaw-plugins-backup"
 
 # 在 GitHub 上创建仓库后执行：
-git remote add origin git@github.com:ai-toolbox-hub/openclaw-plugin-rsync.git
+git remote add origin git@github.com:ai-toolbox-hub/openclaw-plugins-backup.git
 git push -u origin main
 ```
 
