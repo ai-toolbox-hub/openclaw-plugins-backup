@@ -1,0 +1,21 @@
+# 文本文件换行符处理
+*.md text eol=lf
+*.txt text eol=lf
+*.yml text eol=lf
+*.yaml text eol=lf
+*.sh text eol=lf
+
+# 二进制文件处理
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.pdf binary
+
+# 文档文件属性
+*.md linguist-documentation
+*.txt linguist-documentation
+
+# 配置文件属性
+*.yml linguist-config
+*.yaml linguist-config
